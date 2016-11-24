@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "tabBar": {
+    "color": "#e1e1e1",
+    "selectedColor": "#f3a331",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "image/home-no.png",
+      "selectedIconPath": "image/home-select.png",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/demo/index",
+      "iconPath": "image/game-no.png",
+      "selectedIconPath": "image/game-select.png",
+      "text": "计步"
+    }, {
+      "pagePath": "pages/ui/index",
+      "iconPath": "image/tab-donate-no.png",
+      "selectedIconPath": "image/donate-select.png",
+      "text": "保存"
+    }, {
+      "pagePath": "pages/index/index",
+      "iconPath": "image/mall-no.png",
+      "selectedIconPath": "image/mall-select.png",
+      "text": "喜欢"
+    }]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#ddd",
+    "navigationBarBackgroundColor": "#f3a331",
+    "navigationBarTitleText": "测试",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": "true"
+  },
+  "debug": true
+}

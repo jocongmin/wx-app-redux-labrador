@@ -1,0 +1,30 @@
+<scroll-view scroll-y="true" bindscrolltolower='loadMore'>
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{state.imgUrls}}" wx:key="{{item.type}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="step-num clearfix">
+        <view class="num">
+            <text>可用步数</text>
+            <text class="n">
+                15873
+            </text>
+        </view>
+        <view class="btn">
+            我的兑换
+        </view>
+    </view>
+    <view class="list clearfix">
+        <block wx:for="{{state.proData}}" wx:key="{{item.type}}">
+            <view class="item">
+                <image src='{{item.img}}'></image>
+                <view class="tit">
+                    {{item.tit}}
+                </view>
+            </view>
+        </block>
+    </view>
+</scroll-view>
