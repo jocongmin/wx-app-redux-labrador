@@ -1,6 +1,13 @@
-import { Component, PropTypes } from 'labrador-immutable';
+import {
+  Component,
+  PropTypes
+} from 'labrador-immutable';
 
-const { string, bool, func } = PropTypes;
+const {
+  string,
+  bool,
+  func
+} = PropTypes;
 
 class Todo extends Component {
   static propTypes = {
@@ -43,4 +50,3 @@ class Todo extends Component {
 }
 
 export default Todo;
-
