@@ -31,19 +31,21 @@ class Index extends Component {
     indicatorDots: true,
     autoplay: true,
     interval: 2000,
-    duration: 1000
+    duration: 1000,
   };
   onLoad() {
-    this.props.getListData();
+    this.props.getListData({
+      oldData: [],
+    });
     var listData = this.props.shopState.listData;
     this.setState({
-      proData: listData
+      proData: listData,
     });
   }
   onPullDownRefresh() {
     wx.showNavigationBarLoading();
     this.setState({
-      proData: listData
+      proData: listData,
     })
     setTimeout(function() {
       wx.hideNavigationBarLoading();
@@ -55,9 +57,12 @@ class Index extends Component {
       testData: Rand
     })
     console.log(this.props.shopState.testData, 'testData--------'); //成功触发数据
-    this.props.getListData();
+    let oldData = this.state.proData;
+    this.props.getListData({
+      oldData: oldData,
+    });
     var newData = this.props.shopState.listData;
-    if (newData.length >= 60) {
+    if (newData.length >= 80) {
       wx.showToast({
         title: '已经没有更多数据!',
         icon: 'success',

@@ -38,12 +38,15 @@ const listData = [{
   img: '../../image/pro-img.png',
   tit: '沃尔玛抵用券:301000步'
 }, ];
-import {
-  createAction,
-  handleActions
-} from 'redux-actions';
-import immutable from 'seamless-immutable';
 
+
+import {
+  createAction
+} from 'redux-actions';
+import Immutable from 'seamless-immutable';
+
+
+// Action Types - LOAD, CREATE, UPDATE, REMOVE
 export const TESTACTION = 'TESTACTION';
 export const GET_LIST_DATA = 'GET_LIST_DATA';
 
@@ -51,18 +54,28 @@ export const GET_LIST_DATA = 'GET_LIST_DATA';
 export const testAction = createAction(TESTACTION);
 export const getListData = createAction(GET_LIST_DATA);
 
-// 初始state
-export const INITIAL_STATE = immutable({
-  testData: 0
-});
 
-export default handleActions({
-  TESTACTION: (state, action) =>
-    state.merge({
+// Reducer
+const initialState = Immutable({
+  testData: 0,
+  page: 0,
+  listData: [],
+});
+export default function reducer(state = initialState, action: FluxStandardAction < any > ) {
+  if (action.type == TESTACTION) {
+    console.log(action, 'test----------')
+    return state.merge({
       testData: action.payload.testData
-    }),
-  GET_LIST_DATA: (state, action) =>
-    state.merge({
-      listData: listData.concat(listData),
-    }),
-}, INITIAL_STATE);
+    });
+  } else if (action.type == GET_LIST_DATA) {
+    console.log(action, 'get-list-data------')
+    let oldData = action.payload.oldData;
+    let newGetData = listData;
+    let sendData = oldData.concat(newGetData);
+    return state.merge({
+      listData: sendData,
+    });
+  } else {
+    return state;
+  }
+}
