@@ -33,7 +33,7 @@ class Index extends Component {
     interval: 2000,
     duration: 1000,
   };
-  onLoad() {
+  initListData() {
     this.props.getListData({
       oldData: [],
     });
@@ -42,11 +42,12 @@ class Index extends Component {
       proData: listData,
     });
   }
+  onLoad() {
+    this.initListData();
+  }
   onPullDownRefresh() {
     wx.showNavigationBarLoading();
-    this.setState({
-      proData: listData,
-    })
+    this.initListData();
     setTimeout(function() {
       wx.hideNavigationBarLoading();
     }, 1000)
